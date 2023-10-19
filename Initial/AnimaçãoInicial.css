@@ -1,0 +1,25 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  
+}
+
+.container img {
+  width: auto;
+  height: auto;
+  min-width: 50px; 
+  min-height: 50px;
+  margin: 1%;
+  border-radius: 5px;
+  border: 5px solid #FFFFFF;
+}
+
+
+body {
+  background-color: #1c1c1c;
+ 
+}
+.container img border {
+  color: orange !important;
+}
