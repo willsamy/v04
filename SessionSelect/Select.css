@@ -5,25 +5,30 @@ body {
   font-weight: 500;
   background-color: #BCAAA4;
   -webkit-font-smoothing: antialiased;
+  
 }
 
 
 .title {
+  
   font-family: "Raleway";
   font-size: 24px;
   font-weight: 700;
   color: #5D4037;
   text-align: center;
+  
 }
 
 p {
   line-height: 1.5em;
   color: white;
   
+  
 }
 
 h1+p, p+p {
   margin-top: 10px;
+  
 }
 
 .container {
@@ -31,6 +36,8 @@ h1+p, p+p {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
+  position: relative;
   
 }
 
@@ -39,6 +46,7 @@ h1+p, p+p {
   transform: perspective(800px);
   transform-style: preserve-3d;
   cursor: pointer;
+  
   
   
 }
@@ -80,7 +88,7 @@ h1+p, p+p {
   rgba(black, 0.66) 0 30px 60px 0,
   inset #333 0 0 0 5px,
   inset rgba(white, 0.5) 0 0 0 6px;
-  background-image: url(https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ix)
+  
   
 }
 

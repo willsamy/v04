@@ -9,24 +9,32 @@
 <body>
   <h1 class="title">Selecione Sua Sessão</h1>
 
-
-  
   <div id="app" class="container">
-    
-    <div class="card-wrap" >
-      
+    <div class="card-wrap"
+      data-image="https://images.unsplash.com/photo-1479660656269-197ebb83b540?dpr=2&auto=compress,format&fit=crop&w=1199&h=798&q=80&cs=tinysrgb&crop="
+      onclick="window.location.href='/LoginRegistro/LoginTurismo.html'">
       <div class="card" id="card">
         <div class="card-bg" id="card-bg" style="transform: translateX(0px) translateY(0px);"></div>
         <div class="card-info">
-          <h1 slot="header">Canyons</h1>
-          <p slot="content">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+          <h1 slot="header">Turísmo</h1>
+          <p slot="content">Tour pela natureza e cultura de Mâncio Lima. Visita às florestas, rios e comunidades
+            ribeirinhas da região.</p>
         </div>
       </div>
-      
     </div>
 
-
-    
+    <div class="card-wrap"
+      data-image="https://images.unsplash.com/photo-1479660656269-197ebb83b540?dpr=2&auto=compress,format&fit=crop&w=1199&h=798&q=80&cs=tinysrgb&crop="
+      onclick="window.location.href='/LoginRegistro/LoginBDD.html'">
+      <div class="card" id="card">
+        <div class="card-bg" id="card-bg" style="transform: translateX(0px) translateY(0px);"></div>
+        <div class="card-info">
+          <h1 slot="header">Banco de Dados</h1>
+          <p slot="content">Dados geo sobre a região de Mâncio Lima.</p>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <script src="Select.js"></script>
 </body>

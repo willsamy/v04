@@ -8,6 +8,12 @@ document.addEventListener('DOMContentLoaded', function() {
         mouseY = 0;
     let mouseLeaveDelay = null;
 
+    // Adicione esta linha para ler o atributo data-image
+    const bgImage = cardWrap.getAttribute('data-image');
+    if (bgImage) {
+      cardWrap.querySelector('.card-bg').style.backgroundImage = `url(${bgImage})`;
+    }
+
     function handleMouseMove(e) {
       mouseX = e.pageX - cardWrap.offsetLeft - width / 2;
       mouseY = e.pageY - cardWrap.offsetTop - height / 2;
