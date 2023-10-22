@@ -1,12 +1,15 @@
 document.addEventListener('DOMContentLoaded', function() {
   const cardWraps = document.querySelectorAll('.card-wrap');
 
-  cardWraps.forEach(cardWrap => {
+  cardWraps.forEach((cardWrap, index) => {
     let width = 0,
         height = 0,
         mouseX = 0,
         mouseY = 0;
     let mouseLeaveDelay = null;
+
+    // Adicione esta linha para ler o atributo data-video
+    const videoSrc = cardWrap.getAttribute('data-video');
 
     // Adicione esta linha para ler o atributo data-image
     const bgImage = cardWrap.getAttribute('data-image');
@@ -15,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function handleMouseMove(e) {
-      mouseX = e.pageX - cardWrap.offsetLeft - width / 2;
+      mouseX = e.pageX - cardWrap.offsetLeft - width / 5;
       mouseY = e.pageY - cardWrap.offsetTop - height / 2;
 
       const mousePX = mouseX / width;
@@ -54,5 +57,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
     width = cardWrap.querySelector('.card').offsetWidth;
     height = cardWrap.querySelector('.card').offsetHeight;
+
+    if (videoSrc && index === 0) {
+      const video = document.createElement('video');
+      video.src = videoSrc;
+      video.autoplay = true;
+      video.muted = true;
+      video.loop = true;
+
+      // Adicione a classe .data-video ao elemento de vídeo
+      video.classList.add('data-video');
+
+      cardWrap.querySelector('.card-bg').appendChild(video);
+    }
   });
 });
