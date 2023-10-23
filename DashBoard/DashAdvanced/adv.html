@@ -150,24 +150,7 @@
               });
             </script>
 
-  <script>  document.addEventListener("DOMContentLoaded", function() {
-    // Seleciona todos os itens do dropdown
-    const dropdownItems = document.querySelectorAll("#geojson-dropdown .dropdown-item");
-
-    // Adiciona um evento de clique a cada item do dropdown
-    dropdownItems.forEach(item => {
-      item.addEventListener("click", function() {
-        // Obtém o valor do atributo 'data-content'
-        const content = this.getAttribute("data-content");
-
-        // Constrói o nome do arquivo GeoJSON com base no conteúdo
-        const filename = `ML_${content.replace(/ /g, "_")}.geojson`;
-
-        // Carrega o arquivo GeoJSON
-        loadGeoJSON(filename);
-      });
-    });
-  });</script>
+  
   
 
 </body>

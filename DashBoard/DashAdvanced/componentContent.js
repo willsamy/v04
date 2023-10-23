@@ -9,7 +9,7 @@ function displayComponentContent(selectedID) {
     let contentToDisplay = '';
 
     switch(selectedID) {
-        case 'terras-indigenas':
+        case 'ML_Terras-Indigenas':
             contentToDisplay = '<p>Conteúdo sobre Terras Indígenas.</p>';
             break;
         case 'unidades-conservacao':
@@ -27,3 +27,18 @@ function displayComponentContent(selectedID) {
 
     contentContainer.innerHTML = contentToDisplay;
 }
+document.querySelectorAll('.dropdown-item').forEach(item => {
+    item.addEventListener('click', function(event) {
+        const content = event.target.getAttribute('data-content');
+        const filename = `ML_${content.replace(/\s+/g, '_')}.geojson`;
+        loadGeoJSON(filename);
+        displayComponentContent(content);
+    });
+});
+
+function displayComponentContent(selectedContent) {
+    let contentContainer = document.getElementById('componentContent');
+    let contentToDisplay = `<p>Conteúdo sobre ${selectedContent}.</p>`;
+    contentContainer.innerHTML = contentToDisplay;
+}
+

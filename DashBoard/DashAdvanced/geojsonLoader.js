@@ -1,12 +1,12 @@
-// Objeto para armazenar as camadas GeoJSON
+// Object to store GeoJSON layers
 var geojsonLayers = {};
 
-// Função para lidar com cada feature do GeoJSON
+// Function to handle each feature in the GeoJSON
 function onEachFeature(feature, layer) {
     layer.bindPopup(feature.properties.nome_aldei);
 }
 
-// Função para carregar GeoJSON
+// Function to load GeoJSON
 function loadGeoJSON(filename) {
     fetch(filename)
         .then(response => response.json())
@@ -16,13 +16,13 @@ function loadGeoJSON(filename) {
             }).addTo(map);
             geojsonLayers[filename] = geojsonLayer;
 
-            // Ajustar o zoom e a posição do mapa para caber na camada GeoJSON
+            // Adjust the map's zoom and position to fit the GeoJSON layer
             map.fitBounds(geojsonLayer.getBounds());
         })
-        .catch(error => console.error('Erro ao carregar o GeoJSON:', error));
+        .catch(error => console.error('Error loading GeoJSON:', error));
 }
 
-// Função para remover GeoJSON
+// Function to remove GeoJSON
 function removeGeoJSON(filename) {
     const layer = geojsonLayers[filename];
     if (layer) {
@@ -31,16 +31,16 @@ function removeGeoJSON(filename) {
     }
 }
 
-// Função para lidar com a seleção do checkbox
-document.addEventListener("DOMContentLoaded", function() {
-    const checkboxes = document.querySelectorAll("input[type=checkbox]");
-    checkboxes.forEach(checkbox => {
-        checkbox.addEventListener("change", function() {
-            const filename = this.value + '.geojson';
-            if (this.checked) {
-                loadGeoJSON(filename);
-            } else {
+// Function to handle dropdown menu selection
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.dropdown-item').forEach(item => {
+        item.addEventListener('click', function(event) {
+            const content = event.target.getAttribute('data-content');
+            const filename = `ML_${content.replace(/\s+/g, '_')}.geojson`;
+            if (geojsonLayers[filename]) {
                 removeGeoJSON(filename);
+            } else {
+                loadGeoJSON(filename);
             }
         });
     });
