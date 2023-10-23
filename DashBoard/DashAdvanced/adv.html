@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Área do Profissional - Mâncio Lima</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"/>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="adv.css">
+    <link href="bootstrap.min.css" rel="stylesheet">
+    <script src="bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+
+
+</head>
+<body>
+
+    <div id='map'></div>
+
+    <div id="topbar">
+        <span style="color: black;">Mâncio Lima - Banco de Dados</span>
+    </div>
+    <div id="sidebar">
+        <ul>
+            <li data-expand="home" class="clickable-icon">
+                <i class="fas fa-home expand-button" id="home-button"></i>
+                <span class="tooltip-text">Home</span>
+            </li>
+
+            <div class="expanded-content" id="expanded-home">
+                <div style="text-align: left;">
+                    <h3>Bem vindo ao Banco de dados do Municipio de Máncio Lima</h3>
+                    <input type="checkbox" value="Municipio_Acre_IBGE2021"> Acre<br>
+
+                </div>
+            </div>
+
+            <li data-expand="road" class="clickable-icon">
+                <i class="fas fa-road expand-button" id="road-button"></i>
+                <span class="tooltip-text">Categorias Fundiárias</span>
+            </li>
+
+            
+            <div   class="expanded-content" id="expanded-road">
+              <!-- conteudo da barra expandida -->
+              <div style="align-items: center;" class="dropdown">
+                <button  class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" aria-haspopup="true" aria-expanded="false">
+                  Categoria
+                </button >
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" href="#" data-content="Terras Indígenas">Terras Indígenas</a>
+                  <a class="dropdown-item" href="#" data-content="Unidades de Conservação">Unidades de Conservação</a>
+                  <a class="dropdown-item" href="#" data-content="Assentamentos Rurais">Assentamentos Rurais</a>
+                  <a class="dropdown-item" href="#" data-content="Imóveis Rurais (Inscritos no CAR)">Imóveis Rurais (Inscritos no CAR)</a>
+                </div>
+              </div>
+              <div id="content-container" style="margin-top: 20px;"></div>
+
+              <div id="componentContent">
+                <h5 style="color: black;">Selecione uma categoria para ver o conteúdo.</h5>
+              </div>
+            </div>
+                
+       
+
+            <li data-expand="bridge" class="clickable-icon">
+                <i class="fas fa-archway expand-button" id="bridge-button"></i>
+                <span class="tooltip-text">Infraestrutura e Logística</span>
+            </li>
+
+            <div class="expanded-content" id="expanded-bridge">Conteúdo de Pontes</div>
+
+            <li data-expand="land-use" class="clickable-icon">
+                <i class="fas fa-seedling expand-button" id="land-use-button"></i>
+                <span class="tooltip-text">Sistemas Produtivos</span>
+            </li>
+
+            <div class="expanded-content" id="expanded-land-use">Conteúdo de Uso da Terra</div>
+
+            <li data-expand="tree" class="clickable-icon">
+                <i class="fas fa-tree expand-button" id="tree-button"></i>
+                <span class="tooltip-text">Cobertura do Solo</span>
+            </li>
+
+            <div class="expanded-content" id="expanded-tree">Conteúdo de Árvores</div>
+
+        </ul>
+    </div>
+
+    <!-- jQuery and Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+    <script src="adv.js"></script>
+    <script src="mapconfig.js"></script>
+    <script src="geojsonLoader.js"></script>
+    <script src="overlayHandler.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="componentContent.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <script>$(document).ready(function(){
+          $(".dropdown-item").click(function() {
+            const content = $(this).data('content');
+            $("#content-container").html(content);
+          });
+        });
+
+    </script>
+
+            <script>
+              // Obter referências aos elementos do menu dropdown e do conteúdo
+              var dropdownButton = document.getElementById('dropdownMenuButton');
+              var dropdownMenu = document.querySelector('.dropdown-menu');
+              var contentContainer = document.getElementById('content-container');
+              var componentContent = document.getElementById('componentContent');
+
+              // Adicionar evento de clique ao botão para abrir/fechar o menu dropdown
+              dropdownButton.addEventListener('click', function() {
+                dropdownMenu.classList.toggle('show');
+                if (dropdownMenu.classList.contains('show')) {
+                  contentContainer.style.marginBottom = dropdownMenu.offsetHeight + 'px';
+                } else {
+                  contentContainer.style.marginBottom = '20px'; // Valor padrão da margem inferior
+                }
+              });
+
+              // Adicionar evento de clique aos itens do menu para exibir o conteúdo selecionado e fechar o menu
+              var dropdownItems = document.querySelectorAll('.dropdown-item');
+              dropdownItems.forEach(function(item) {
+                item.addEventListener('click', function() {
+                  var content = this.getAttribute('data-content');
+                  contentContainer.textContent = content;
+                  dropdownMenu.classList.remove('show');
+                  contentContainer.style.marginBottom = '20px'; // Restaurar a margem inferior padrão
+                });
+              });
+
+              // Fechar o menu dropdown ao clicar fora dele
+              window.addEventListener('click', function(event) {
+                if (!dropdownButton.contains(event.target)) {
+                  dropdownMenu.classList.remove('show');
+                  contentContainer.style.marginBottom = '20px'; // Restaurar a margem inferior padrão
+                }
+              });
+            </script>
+
+</body>
+</html>
