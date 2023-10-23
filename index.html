@@ -5,11 +5,54 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <title>HTML básico inicial</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+    }
+    
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+    
+    .button-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+    }
+    
+    button {
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
 </head>
+
 <body>
-  <button onclick="window.location.href='/Initial/AnimaçãoInicial.html'">InitialAnimation</button>
-  <button onclick="window.location.href='/DashBoard/DashAdvanced/adv.html'">DashBoard(Inacabado) aqui</button>
-  <button onclick="window.location.href='/SessionSelect/Select.html'">SelectSession</button>
+  <h1>ProtejtoML0.7</h1>
+  <div class="button-container">
+    <button onclick="window.location.href='/Initial/AnimaçãoInicial.html'">Initial Animation</button>
+    <button onclick="window.location.href='/DashBoard/DashAdvanced/adv.html'">Dashboard (Alpha)</button>
+    <button onclick="window.location.href='/SessionSelect/Select.html'">Select Session</button>
+  </div>
 </body>
 
 </html>

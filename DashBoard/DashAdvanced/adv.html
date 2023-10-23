@@ -33,8 +33,8 @@
 
             <div class="expanded-content" id="expanded-home">
                 <div style="text-align: left;">
-                    <h3>Bem vindo ao Banco de dados do Municipio de Máncio Lima</h3>
-                    <input type="checkbox" value="Municipio_Acre_IBGE2021"> Acre<br>
+                    <h5>Bem vindo ao Banco de dados do Municipio de Máncio Lima</h3>
+                    
 
                 </div>
             </div>
@@ -45,25 +45,25 @@
             </li>
 
             
-            <div   class="expanded-content" id="expanded-road">
-              <!-- conteudo da barra expandida -->
+          <div class="expanded-content" id="expanded-road">
+              <!-- conteúdo da barra expandida -->
               <div style="align-items: center;" class="dropdown">
-                <button  class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" aria-haspopup="true" aria-expanded="false">
-                  Categoria
-                </button >
-                <div class="dropdown-menu" id="geojson-dropdown" aria-labelledby="dropdownMenuButton">
-                  <a class="dropdown-item" href="#" data-content="ML_Terras_Indigenas">Terras Indígenas</a>
-                  <a class="dropdown-item" href="#" data-content="Unidades de Conservação">Unidades de Conservação</a>
-                  <a class="dropdown-item" href="#" data-content="Assentamentos Rurais">Assentamentos Rurais</a>
-                  <a class="dropdown-item" href="#" data-content="Imóveis Rurais (Inscritos no CAR)">Imóveis Rurais (Inscritos no CAR)</a>
-                </div>
+                  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" aria-haspopup="true" aria-expanded="false">
+                      Categoria
+                  </button>
+                  <div class="dropdown-menu" id="geojson-dropdown" aria-labelledby="dropdownMenuButton">
+                      <a class="dropdown-item" href="#" value="ML_Terras_Indigenas">Terras Indígenas</a>
+                      <a class="dropdown-item" href="#" value="ML_UDC">Unidades de Conservação</a>
+                      <a class="dropdown-item" href="#" value="MLAseentamentosINCRA">Assentamentos Rurais</a>
+                      <a class="dropdown-item" href="#" value="ML_Imoveis_Incra">Imóveis Rurais (Inscritos no CAR)</a>
+                  </div>
               </div>
               <div id="content-container" style="margin-top: 20px;"></div>
-
               <div id="componentContent">
-                <h5 style="color: black;">Selecione uma categoria para ver o conteúdo.</h5>
+                  <h5 style="color: black;">Selecione uma categoria para ver o conteúdo.</h5>
               </div>
-            </div>
+          </div>
+
                 
        
 
@@ -96,9 +96,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 
     <script src="adv.js"></script>
-    <script src="mapconfig.js"></script>
-    <script src="geojsonLoader.js"></script>
-    <script src="overlayHandler.js"></script>
+    
+    
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="componentContent.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -149,8 +149,9 @@
                 }
               });
             </script>
-
-  
+    <script src="geojsonLoader.js"></script>
+    <script src="overlayHandler.js"></script>
+    <script src="componentContent.js"></script>"
   
 
 </body>
