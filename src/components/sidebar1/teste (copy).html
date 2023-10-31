@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SideBar Component</title>
+    <link rel="stylesheet" href="SideBar.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
+    <script src="src/components/universal.js" defer></script>
+    <script src="src/components/sidebar1/SideBar.js" defer></script>"
+    <script>
+        window.addEventListener('DOMContentLoaded', (event) => {
+            new UniversalComponent("SideBar", ["components/sidebar1/SideBar.css"], ["components/sidebar1/SideBar.js"]);
+        });
+    </script>
+</head>
+
+<body>
+    <div class="sidebar">
+        <div class="icon selected"></div>
+        <div class="icon"></div>
+        <div class="icon"></div>
+        <div class="icon"></div>
+        <!-- Adicione mais ícones conforme necessário -->
+    </div>
+
+    <div class="content">
+        <!-- Conteúdo da barra expansiva vai aqui -->
+        <div class="content-panel active"></div>
+        <div class="content-panel"></div>
+        <div class="content-panel"></div>
+        <div class="content-panel"></div>
+        <!-- Adicione mais painéis conforme necessário -->
+    </div>
+
+</body>
+
+</html>
